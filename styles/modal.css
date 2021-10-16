@@ -1,0 +1,224 @@
+#modal-container {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  z-index: 1;
+}
+
+#modal-container.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#modal-container.active .modal-background {
+  background: rgba(0, 0, 0, 0);
+  -webkit-animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active .modal-background .modal {
+  background-color: transparent;
+  -webkit-animation: modalFadeIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: modalFadeIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active .modal-background .modal input,
+#modal-container.active .modal-background .modal label,
+#modal-container.active .modal-background .modal h1,
+#modal-container.active .modal-background .modal button {
+  opacity: 0;
+  position: relative;
+  -webkit-animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active .modal-background .modal .modal-svg rect {
+  -webkit-animation: sketchIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: sketchIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.notActive {
+  -webkit-animation: quickScaleDown 0s 0.5s linear forwards;
+          animation: quickScaleDown 0s 0.5s linear forwards;
+}
+
+#modal-container.active.notActive .modal-background {
+  -webkit-animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.notActive .modal-background .modal {
+  -webkit-animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.notActive .modal-background .modal h2,
+#modal-container.active.notActive .modal-background .modal p {
+  -webkit-animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.notActive .modal-background .modal .modal-svg rect {
+  -webkit-animation: sketchOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: sketchOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container .modal-background {
+  display: table-cell;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  vertical-align: middle;
+}
+
+#modal-container .modal-background .modal {
+  background: white;
+  padding: 3%;
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: 300;
+  position: relative;
+  width: 30%;
+  height: 40%;
+}
+
+#modal-container .modal-background .modal h2 {
+  font-size: 25px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+#modal-container .modal-background .modal p {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@-webkit-keyframes modalFadeIn {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes modalFadeIn {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+@-webkit-keyframes modalContentFadeIn {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes modalContentFadeIn {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.form h2 {
+  padding: 1em;
+  text-align: center;
+}
+
+.form input,
+.form label,
+.form button {
+  display: block;
+  margin: 0.5em auto;
+  width: 80%;
+}
+
+.form label {
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #bbb;
+  color: #555;
+  font-family: ubuntu;
+  font-weight: bold;
+  padding-bottom: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.form input:focus {
+  -webkit-box-shadow: inset 0 -2px 0 steelblue;
+          box-shadow: inset 0 -2px 0 steelblue;
+  padding-bottom: 1em;
+  outline: 0;
+}
+
+.form__button {
+  background: #ddd;
+  border: 0;
+  color: #555;
+  cursor: pointer;
+  margin: 2em auto;
+  height: 40px;
+  width: 60px;
+}
+/*# sourceMappingURL=modal.css.map */

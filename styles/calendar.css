@@ -1,0 +1,322 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  overflow: hidden;
+  margin: 0;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  background-color: white;
+  border-bottom: solid #e2e8f0 0.01rem;
+  border-top: solid #e2e8f0 0.01rem;
+  padding: 1.5rem 2.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.header__icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 2rem !important;
+  line-height: 2rem !important;
+}
+
+.header__icon:hover {
+  cursor: pointer;
+}
+
+.header__date, .header__today, .header__selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__text {
+  font-size: 1.563rem;
+  margin: 0.5rem;
+}
+
+.header__selector {
+  font-size: 1.563rem;
+}
+
+@media (min-width: 767px) and (max-width: 1536px) {
+  .header {
+    height: 3%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    height: 3%;
+  }
+  .header__text {
+    font-size: 1rem;
+  }
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.row {
+  border-bottom: solid #e2e8f0 0.01rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  -ms-grid-rows: 4%;
+      grid-template-rows: 4%;
+  width: 100%;
+  height: 100%;
+}
+
+.row__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: solid #e2e8f0 0.01rem;
+  height: 100%;
+}
+
+.row__header .header__text {
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.row__cell {
+  width: 100%;
+  height: 100%;
+  border: 0.05rem solid #e2e8f0;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.row__cell:hover {
+  background-color: #e2e8f0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.row__cell .cell__top {
+  width: 100%;
+  height: 1.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row__cell .cell__top .day-number {
+  width: 1.8rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row__cell .cell__top .day-number p {
+  font-size: 0.8rem;
+}
+
+.row__cell .cell__top .day-number--today {
+  width: 1.8rem;
+  height: 100%;
+  border-radius: 1.8rem;
+  background-color: #de7373;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row__cell .cell__top .day-number--today p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.row__cell .cell__top .day-number--other {
+  width: 1.8rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row__cell .cell__top .day-number--other p {
+  font-size: 0.8rem;
+  color: #cccccc;
+}
+
+.row__cell .cell__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 62%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 0.2rem;
+  margin-top: 2%;
+}
+
+.event {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 33%;
+  height: 25%;
+  background: #a7a7a7;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  border-radius: 4px;
+}
+
+.event-hidden {
+  display: none;
+}
+
+.event-me {
+  background: #de7373;
+}
+
+.dayText {
+  margin: 0 8%;
+  font-size: 0.8rem;
+  display: unset;
+  white-space: nowrap;
+  word-break: break-word;
+  width: 100%;
+  max-width: 170px;
+  overflow: hidden;
+}
+
+.dayText-center {
+  text-align: center;
+}
+
+@media (min-width: 767px) and (max-width: 1536px) {
+  .dayText {
+    font-size: 0.7rem;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  .row {
+    height: 85%;
+  }
+  .event {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 1rem;
+    background: #a7a7a7;
+  }
+  .event p {
+    display: none;
+  }
+  .event p ::before {
+    content: "";
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .row {
+    height: 85%;
+  }
+  .event {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 1rem;
+    background: #a7a7a7;
+  }
+  .event p {
+    display: none;
+  }
+  .event p ::before {
+    content: "";
+  }
+}
+/*# sourceMappingURL=calendar.css.map */

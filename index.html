@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/calendar.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./js/buildCalendar.js"></script>
+    <script src="./js/calendarUtils.js"></script>
+    <script src="./js/alamrs.js"></script>
+    <title>Calendario</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header__today">
+            <span class="material-icons header__icon" onclick="changeDate('today')">
+                today
+            </span>
+        </div>
+        <div class="header__date">
+            <span class="material-icons header__icon" onclick="changeDate('-')">chevron_left</span>
+            <p class="header__text" id='showDate'></p>
+            <span class="material-icons header__icon" onclick="changeDate('+')">chevron_right</span>
+        </div>
+        <div id='reloj' class="header__selector">
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="row" id="calendar">
+        </div>
+    </div>
+
+    <div id="modal-container" onclick="closeModal()">
+        <div class="modal-background">
+            <div onclick="event.stopPropagation()" class="modal">
+                <form class="form">
+                    <h1>Create event</h1>
+                    <label for="modalName">Name</label>
+                    <input id="modalName" name="name" type="text" placeholder="Enter name....">
+                    <label for="modalDate">Date</label>
+                    <input id="modalDate" name="modalDate" type="date">
+                    <label for="modalHour">Hour</label>
+                    <input id="modalHour" name="modalHour" type="number" placeholder="Enter a hour...">
+                    <label for="modalMinute">Minute</label>
+                    <input id="modalMinute" name="modalMinute" type="number" placeholder="Enter a minute...">
+                </form>
+                <button class="form__button" onclick="saveEvent()">Save</button>
+            </div>
+        </div>
+    </div>
+    <audio controls id="audio" style="visibility: hidden;">
+        <source src="sound/alarma.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-flow: row;
+  background-color: white;
+  border-bottom: solid #e2e8f0 0.01rem;
+  border-top: solid #e2e8f0 0.01rem;
+  padding: 1.5rem 2.5rem;
+  justify-content: space-between;
+  user-select: none;
+
+  &__icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 2rem !important;
+    line-height: 2rem !important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__date,
+  &__today,
+  &__selector {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 1.563rem;
+    margin: 0.5rem;
+  }
+
+  &__selector {
+    font-size:1.563rem
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1536px) {
+  .header {
+    height: 3%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    height: 3%;
+    &__text {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+
+
+$circleToday: 1.8rem;
+
+.grid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.row {
+    border-bottom: solid #e2e8f0 0.01rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 4%;
+    width: 100%;
+    height:100%;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid #e2e8f0 0.01rem;
+        height: 100%;
+
+        .header__text {
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    &__cell {
+        width: 100%;
+        height:100%;
+        border: 0.05rem solid #e2e8f0;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        &:hover {
+            background-color: #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .cell__top {
+            width: 100%;
+            height: $circleToday;
+            // background-color: yellow;
+            display: flex;
+            justify-content: center;
+
+            .day-number {
+                width: $circleToday;
+                height: 100%;
+                // background-color: skyblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+
+            .day-number--today {
+                width: $circleToday;
+                height: 100%;
+                border-radius: $circleToday;
+                background-color: #de7373;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-size: 0.8rem;
+                    color: white;
+                    // font-weight: bold;
+                }
+            }
+
+            .day-number--other {
+                width: $circleToday;
+                height: 100%;
+                // background-color: skyblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-size: 0.8rem;
+                    color: #cccccc;
+                }
+            }
+
+
+        }
+
+        .cell__content {
+            display: flex;
+            flex-direction: column;
+            height: 62%;
+            align-items: flex-start;
+            gap: 0.2rem;
+            margin-top: 2%;
+        }
+    }
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    max-height: 33%;
+    height: 25%;
+    background: #a7a7a7;
+    width: 90%;
+    align-self: center;
+    justify-content: center;
+    color: white;
+    border-radius: 4px;
+
+
+    &-hidden {
+        display: none;
+    }
+
+    &-me {
+        background: #de7373;
+    }
+}
+
+.dayText {
+    margin: 0 8%;
+    font-size: 0.8rem;
+    display: unset;
+    white-space: nowrap;
+    word-break: break-word;
+    width: 100%;
+    max-width: 170px;
+    overflow: hidden;
+
+    &-center {
+        text-align: center;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1536px) {
+    .dayText {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .row{
+        height: 85%;
+    }
+
+    .event {
+        height: 0.75rem;
+        width: 0.75rem;
+        border-radius: 1rem;
+        background: #a7a7a7;
+
+        p {
+            display: none;
+
+            ::before {
+                content: ""
+            }
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .row{
+        height: 85%;
+    }
+    .event {
+        height: 0.75rem;
+        width: 0.75rem;
+        border-radius: 1rem;
+        background: #a7a7a7;
+
+        p {
+            display: none;
+
+            ::before {
+                content: ""
+            }
+        }
+    }
+}
