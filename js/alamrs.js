@@ -20,7 +20,7 @@ function checkAlarm(date, interval) {
 }
 
 function startReloj() {
-    date = new Date();
+    let date = new Date();
 
     setInterval(
         function () {
