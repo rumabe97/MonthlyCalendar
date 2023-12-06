@@ -67,6 +67,16 @@ function openCreateEvent(day) {
     modalMinute.value = '';
 }
 
+function viewEvent(name,date,hour,minutes) {
+    date = new Date(date);
+    modalContainer.classList.add('active');
+    modalContainer.classList.remove('notActive');
+    modalDate.value = `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`;
+    modalName.value = name;
+    modalHour.value = hour;
+    modalMinute.value = minutes;
+}
+
 function saveEvent() {
     const date = new Date(modalDate.value);
     const name = modalName.value;

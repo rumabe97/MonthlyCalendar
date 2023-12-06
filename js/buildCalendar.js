@@ -21,7 +21,7 @@ window.onload = function () {
 
     startReloj();
     buildCalendar();
-    events.forEach(event =>{
+    events.forEach(event => {
         setAlarm(event.date);
     })
 }
@@ -75,21 +75,19 @@ function printEvents(id) {
     let d_content = document.getElementById(id);
     const eventsOfDay = getEventsDay(d_content.getAttribute('data-value'));
 
-    eventsOfDay.forEach((event, index) => {
+    eventsOfDay.forEach((eventValue, index) => {
         if (index > 3) return;
         d_content.innerHTML += `
-        <div class="event event-me">
-            ${getP(index, event, eventsOfDay.length)}
+        <div class="event event-me" onclick="event.stopPropagation();openEvent(this)">
+            ${getP(index, eventValue, eventsOfDay.length)}
         </div>`;
-        print++;
     })
 }
 
 function getP(cont, value, maxValue) {
     const date = new Date(value.date);
 
-    if (cont < 3) return `<p class="dayText">${value.name} / ${("0" + date.getDate()).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}
-                            -${date.getFullYear()}  ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}</p>`;
+    if (cont < 3) return `<p class="dayText">${value.name} / ${("0" + date.getDate()).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()}   ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}</p>`;
     if (cont === 3) return `<p class="dayText">+${maxValue - cont} events ...</p>`
     return 0;
 }
@@ -99,4 +97,16 @@ function getEventsDay(day) {
     return events.filter(d => new Date(d.date).getDate() === date.getDate()
         && new Date(d.date).getMonth() === date.getMonth()
         && new Date(d.date).getFullYear() === date.getFullYear());
+}
+
+function openEvent(eventValue) {
+    const values = eventValue.getElementsByClassName("dayText")[0].innerHTML;
+    const split1 = values.split("/");
+    const name = split1[0].trim();
+    const split2 = split1[1].split("  ");
+    const date = split2[0].trim();
+    const split3 = split2[1].split(":");
+    const hour = split3[0].trim();
+    const minutes = split3[1].trim();
+    this.viewEvent(name,date,hour,minutes);
 }
